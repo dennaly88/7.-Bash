@@ -28,6 +28,120 @@
 # dpkg --list
 # sudo dpkg -l | less
 
+#_____________________________________#
+# CREAR ARCHIVO PLANO                 #
+#_____________________________________#
+
+# nano prueba.txt
+# touch prueba.txt
+
+#_____________________________________#
+# COPIAR ARCHIVO                      #
+#_____________________________________#
+
+# cp prueba.txt Escritorio/
+
+#_____________________________________#
+# CREAR DIRECTORIO                    #
+#_____________________________________#
+
+# mkdir prueba
+
+#_____________________________________#
+# ELIMINAR DIRECTORIO                 #
+#_____________________________________#
+
+# rmdir prueba
+# rm -r prueba
+ 
+
+#_____________________________________#
+# ELIMINAR PROGRMAS                   #
+#_____________________________________#
+
+# sudo apt remove nombre-del-paquete
+# sudo apt purge nombre-paquete
+
+#_____________________________________#
+# INSTALACION DE PAQUETES .DEB        #
+#_____________________________________#
+
+# 1. DESCARGA EL PAQUETE O PROGRAMA .DEB
+# 2. BUSCA LA RUTA Y DENTRO EJECUTAS EL SIGUIENTE COMANDO
+# 3. sudo dpkg -i NOMBRE DEL PAQUETE.deb
+
+#_____________________________________#
+# SABER LA DISTRIBUCION DEL EQUIPO    #
+#_____________________________________#
+
+#   lsb_release -d
+#   cat /etc/os-release
+#   cat /etc/*release
+
+#_____________________________________#
+#  DEPENDENCIAS INCUMPLIDAS           #
+#_____________________________________#
+    
+#    sudo dpkg --configure -a
+#    sudo apt-get clean && sudo apt-get autoclean
+#    sudo apt-get update --fix-missing
+#    sudo apt-get install -f
+#    sudo rm /var/lib/apt/lists/lock && sudo rm /var/cache/apt/archives/lock && sudo rm /var/lib/dpkg/lock
+
+#_____________________________________#
+#  PARA INSTALAR UN ARCHIVO .tar.xz   #
+#_____________________________________#
+
+# tar -xf NOMBRE DEL ARCHIVO.tar.gz
+
+#___________________________________________#
+# PERMIMOS A CARPETAS Y ARCHIVOS Y GRUPOS   #
+#___________________________________________#
+#  
+# chown fulano:desarrollo algo.txt
+#
+#_____________________________________#
+#  CAMBIAR LA RUTA DE LOCALHOST       #
+#_____________________________________#
+
+
+# SE VA A LA RUTA DE
+# cd /
+# cd etc
+# cd apache
+# cd sites-available
+# EDITAMOS EL ARCHIVO##   nano 000-default.conf
+# CAMBIAMOS LA RUTA
+# DocumentRoot /var/www/
+# GUARDAMOS  Y RESETEAMOS APACHE
+# /etc/init.d/apache2 restart
+# service apache2 restart
+
+#_____________________________________#
+#  APACHE                             #
+#_____________________________________#
+
+
+# /etc/init.d/apache2 start
+# service apache2 start
+
+# /etc/init.d/apache2 restart
+# service apache2 restart
+
+# /etc/init.d/apache2 stop
+# service apache2 stop
+
+# /etc/init.d/apache2 status
+# service apache2 status
+
+
+#_____________________________________#
+#     CAMBIAR VERSION DE PHP          #
+#_____________________________________#
+
+
+# $ sudo update-alternatives --config php
+
 
  
 
