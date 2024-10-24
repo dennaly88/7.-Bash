@@ -99,17 +99,200 @@
 
 
 #_____________________________________#
+#   MYSQL                             #
+#_____________________________________#
+
+
+#  
+# mysql --version
+
+# systemctl status mysql.service STATUS
+
+# systemctl restart mysql.service REINICIAR
+# systemctl stop mysql.service  DETENER
+
+# systemctl start mysql.service INICIAR
+
+
+#_____________________________________#
+#   POSTGRES                          #
+#_____________________________________#
+
+#  psql --version
+
+
+# CONECTARSE                      :   sudo -u postgres psql
+# Listar BD                       :   \l
+# Usar/Seleccionar una base datos :   \c dbname;
+# Listar tablas                   :   \dt
+# Crear base datos                :   CREATE DATABASE dbname OWNER username;
+#                                     ALTER SCHEMA public OWNER TO username;
+# Eliminar base datos              :  DROP DATABASE dbname;
+# Importar una base datos          :  $ psql username  -h hostname -d dbname < dump.sql
+# Crear usuario                    :  CREATE USER username WITH PASSWORD 'MYPASS';
+# CAMBIAR CLAVE                    :  ALTER USER postgres WITH PASSWORD 'Danny16029567*' 
+# CAMBIAR CLAVE postgres           :  sudo -u postgres psql
+#                                      \password postgres
+#                                       \q
+# Establecer super privelegios     :  ALTER USER username WITH SUPERUSER;
+# Listar usuarios                  :  \du
+# Eliminar usuario                 :  DROP USER nomusr
+# Salir de la consola              :  \q
+# Researt                          :   /etc/init.d/postgresql restart RESETEAR POSTGRESQL
+
+
+# CONFIGURACION CONEXION REMOTA POSTGRES
+
+# 1. Una vez conectado edita el siguiente fichero
+#   nano /etc/postgresql/12/main/postgresql.conf
+#   listen_addresses = '*'          # what IP address(es) to listen on;
+#
+# 2. nano /etc/postgresql/12/main/pg_hba.conf
+#
+#
+#   host    all      all              ip/0            md5
+#   host    all      all              ::/0                         md5
+#
+#  3. systemctl restart postgresql.service
+
+
+#_____________________________________#
+#   LLAVES POR SSH                    #
+#_____________________________________#
+
+
+#  PARA  CREAS LA CLAVE PUBLICAS Y PRIVADAS DE SSH
+
+# ssh-keygen
+
+# PARA ENVIAR LA LLAVE A OTRO SERVIDOR
+
+
+# ENTRAS A LA CARPETA DONDE ESTA LA LLAVE EN ESTE CASO ESTA 
+
+#  cd /home/danny/.ssh/
+
+
+# DESDE EL DIRECTORIO LO PUEDES MANDAR 
+# SCP ES UN COMANDO PARA PASAR ARCHIVOS 
+
+# CP PARA PASAR DIRECTORIOS 
+# scp -r id_rsa.pub fulanito@ip:/home/desarrollo/.ssh/authorized_keys
+
+#SI TIENE UN PUERTO ESPECIFICO 
+
+# scp -P 3625 id_rsa.pub fulanito@ip:/home/desarrollo/.ssh/authorized_keys
+
+
+#_____________________________________#
 #     CAMBIAR VERSION DE PHP          #
 #_____________________________________#
 
 
 # $ sudo update-alternatives --config php
 
+
+#_____________________________________#
+#  CAMBIAR FONDO DE LOGIN             #
+#_____________________________________#
+
+
+# sudo ./change-gdm-background /home/danny/Descargas/fondo.jpeg
+
+# GUARDAMOS  Y RESETEAMOS APACHE
+
+# /etc/init.d/apache2 restart
+# service apache2 restart
+
+
+
+#_____________________________________#
+#  CAMBIAR HOSTNAME DEL SISTEMA       #
+#_____________________________________#
+#  
+
+# PARA VISUALIZAR EL NOMBRE = hostnamectl
+
+# PARA CAMBIAR =  hostnamectl set-hostname hostinger
+
+
+#_____________________________________#
+#   PASAR UN ARCHIVO A OTRO SERVIDOR  #
+#_____________________________________#
+
+# PASAR UN ARCHIVO A OTRO SERVIDOR scp id_rsa.pub usuario@ip:/tmp 
+# PARA GENERAR CLAVE NUEVA ssh-keygen
+
 #______________________________________________________________________#
 #   RUTA O UBICACION                                                   #
 #______________________________________________________________________#
 
 #  pwd
+
+
+
+#_____________________________________#
+#  CAMBIAR EL PUERTO                  #
+#_____________________________________#
+
+
+# nano  /etc/ssh/sshd_config
+
+# Busca la entrada Puerto 22.
+# Sustituye el puerto 22 por un puerto entre 1024 y 65536
+# service ssh restart
+#service ssh status
+
+# ssh fulanito@ip -p 1028
+
+
+
+#_____________________________________#
+#   GIT HUB                           #
+#_____________________________________#
+
+
+# 1. creas primero el repositorio en la pagina de github
+
+# 2. copias https://github.com/dennaly88/html.git
+
+# git clone https://github.com/dennaly88/SISTEMAS-.git
+
+#  Clonando en 'html'...
+#  warning: Pareces haber clonado un repositorio sin contenido.
+# 3. copias todos los archivos a la carpeta que se creo
+
+# 4. entramos a la carpeta  danny@danny:~/Escritorio/html$
+
+#  5. danny@danny:~/Escritorio/html$ git add -A
+
+#  6. danny@danny:~/Escritorio/html$ git status
+
+# 7. danny@danny:~/Escritorio/html$ git commit -m 'CODIGO HTML'
+
+# 8.danny@danny:~/Escritorio/html$ git push origin master
+#    USUARIO dennaly88@gmail.com  O dennaly88
+
+#  TOKEN 
+
+
+# Clonar un Repositorio desde Github al equipo o Servidor
+
+#  Abra Terminal.
+
+#  Cambia el directorio de trabajo actual a la ubicación en donde quieres clonar el directorio.
+
+#  Escriba git clone y pegue la dirección URL que ha copiado antes.
+
+#  git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
+#  Presione Entrar para crear el clon local.
+
+#$ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
+#> Cloning into `Spoon-Knife`...
+#> remote: Counting objects: 10, done.
+#> remote: Compressing objects: 100% (8/8), done.
+#> remove: Total 10 (delta 1), reused 10 (delta 1)
+#> Unpacking objects: 100% (10/10), done.
 
 #______________________________________________________________________#
 #   LISTAR DIRECTORIOS Y ARCHIVOS                                      #             
